@@ -1,0 +1,17 @@
+<nav id="nav-container">
+  <div id="spacer"></div>
+  <div id="nav-bar">
+    <ul id="links">
+      <li>
+        <a routerLink="classes" (click)="select('classes')" [ngClass]="(selectedPage == 'classes') ? 'selected' : 'none'"><span>Classes</span></a>
+      </li>
+      <li>
+        <a routerLink="home" (click)="select('home')" [ngClass]="(selectedPage == 'home') ? 'selected' : 'none'"><span>Home</span></a>
+      </li>
+      <li>
+        <a routerLink="about" (click)="select('about')" [ngClass]="(selectedPage == 'about') ? 'selected' : 'none'"><span>About</span></a>
+      </li>
+    </ul>
+    <h1 id="title">Yoga By Katie</h1>
+  </div>
+</nav>

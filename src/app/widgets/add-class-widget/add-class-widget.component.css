@@ -1,0 +1,30 @@
+.add-class-card {
+  background-color: mediumpurple;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+.add-class-card h4 {
+  color: white;
+}
+
+.add-class-card i:hover {
+  background-color: rgba(255,255,255,.2);
+}
+
+.add-class-content {
+  background-color: white;
+  box-shadow: 0 0 10px 1px rgba(0,0,0,.5);
+  border-radius: 0 0 5px 5px;
+
+  padding: 8px 16px;
+  margin: 0 0 16px 0;
+  max-width: 95vw;
+}
+
+.opened {
+  background-color: rgba(147,112,216,.6);
+  color: mediumpurple;
+  margin-bottom: 0;
+}

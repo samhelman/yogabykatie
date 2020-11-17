@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Satisfy&display=swap');
+
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  color: #333;
+  overflow-x: hidden;
+
+  background: url('./assets/bg.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+main {
+  position: relative;
+}
+
+router-outlet ~ * {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.satisfy {
+  font-family: 'Satisfy', cursive;
+  font-weight: lighter;
+}
+
+.primary-color {
+  color: mediumpurple;
+}
+
+.primary-bg {
+  background-color: mediumpurple;
+}
+
+.card {
+  position: relative;
+  background-color: white;
+  box-shadow: 0 0 10px 1px rgba(0,0,0,.5);
+  border-radius: 3px;
+
+  padding: 8px 16px;
+  margin: 16px 0;
+  max-width: 95vw;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  transition: background-color 1s ease, color 1s ease, height 1s ease, box-shadow 1s ease;
+}
+
+.card h4 {
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+.card p {
+  text-align: left;
+}
+
+.button {
+  padding: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  color: mediumpurple;
+  background-color: white;
+  border-radius: 3px;
+  border: 2px solid mediumpurple;
+  cursor: pointer;
+  margin: 5px 0;
+  display: block;
+
+  transition: color .5s ease, background-color 1s ease, border-color 1s ease, box-shadow 1s ease;
+}
+
+.button:hover {
+  color: white;
+  background-color: mediumpurple;
+  border-color: mediumpurple;
+  box-shadow: 0 0 5px 1px rgba(0,0,0,.5);
+}
+
+.button-primary {
+  color: white;
+  background-color: mediumpurple;
+}
+
+.button-primary:hover {
+  color: mediumpurple;
+  background-color: white;
+}
+
+.button-danger {
+  border-color: tomato;
+  color: tomato;
+}
+
+.button-danger:hover {
+  color: white;
+  background-color: tomato;
+  border-color: tomato;
+}
+
+.container {
+  margin: 1rem 20%;
+  text-align: center;
+}
+
+i {
+  font-size: 1rem;
+  padding: 3px;
+  cursor: pointer;
+  border-radius: 50%;
+  color: #333;
+  transition: background-color 1s ease;
+}
+
+i:hover {
+  background-color: rgba(147,112,216,.5);
+}
+
+.close-icon {
+  position: absolute;
+  top: .5rem;
+  right: .5rem;
+}
+
+.errors {
+  font-size: .8rem;
+  color: red;
+}
+
+.muted {
+  font-size: .8rem;
+}
+
+.muted a {
+  color: mediumpurple;
+  text-decoration: underline;
+}
+
+.blank-space {
+  height: 4rem;
+  width: 100%;
+}
+
+.fadeIn {
+  animation: fadeIn 1s forwards ease;
+}
+
+.fadeOut {
+  animation: fadeOut 1s forwards ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+
+  .container {
+    margin: 1rem 10px;
+  }
+
+}
+
+.grey {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color:  rgba(147,112,216,.5);
+  z-index: 10;
+}
+
+.form-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 1.5rem;
+  width: auto;
+}
+
+fieldset {
+  border: none;
+  text-align: center;
+}
+
+fieldset > * {
+  margin: 8px 0;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  border-bottom: 1px solid mediumpurple;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  padding: 3px;
+  font-size: 1rem;
+  font-family: 'Lato', sans-serif;
+}
+
+input:focus {
+  outline: none;
+  border-width: 2px;
+}
+
+.select-field {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+select {
+  color: blueviolet;
+  border-bottom: 1px solid mediumpurple;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background-color: transparent;
+}
+
+option {
+  color: #333;
+}
+
+.separator {
+  margin: 0 2px;
+}
+
+.submit {
+  display: flex;
+}
+
+.submit > a {
+  margin-right: 5px;
+}
+
+.half {
+  min-width: 50%;
+}

@@ -1,0 +1,93 @@
+<div [ngClass]="{'card': true, 'admin-card': true, 'opened': opened}" (click)="toggleOpen()">
+  <div>
+    <h4 class="primary-color">{{ class.name }}</h4>
+    <p>{{ date + ' (' + time + ')' }}</p>
+  </div>
+  <div>
+    <i *ngIf="!opened" class="material-icons icon">keyboard_arrow_down</i>
+    <i *ngIf="opened" class="material-icons icon">keyboard_arrow_up</i>
+  </div>
+</div>
+<div *ngIf="opened" class="admin-content">
+  <div class="half">
+    <fieldset>
+      <div class="field">
+        <input id="name" [(ngModel)]="updateName">
+      </div>
+      <div class="field">
+        <input id="zoomId" [(ngModel)]="updateZoomId">
+      </div>
+      <div class="field">
+        <input id="description" [(ngModel)]="updateDescription">
+      </div>
+      <div class="field select-field">
+        <label>Date</label>
+        <div class="select-field">
+          <div>
+            <select id="dateMonth" [(ngModel)]="updateDateMonth">
+              <option *ngFor="let month of months; let i = index" [value]="months[i].index">
+                {{month.name}}
+              </option>
+            </select>
+          </div>
+          <p class="separator">/</p>
+          <div>
+            <select id="dateDate" [(ngModel)]="updateDateDate">
+              <option *ngFor="let date of dates; let i = index" [value]="dates[i]">
+                {{date}}
+              </option>
+            </select>
+          </div>
+          <p class="separator">/</p>
+          <div>
+            <select id="dateYear" [(ngModel)]="updateDateYear">
+              <option *ngFor="let year of years; let i = index" [value]="years[i]">
+                {{year}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="field select-field">
+        <label>Time</label>
+        <div class="select-field">
+          <div>
+            <select id="timeHour" [(ngModel)]="updateTimeHour">
+              <option *ngFor="let hour of hours; let i = index" [value]="hours[i]">
+                {{hour}}
+              </option>
+            </select>
+          </div>
+          <p class="separator">:</p>
+          <div>
+            <select id="timeMins" [(ngModel)]="updateTimeMins">
+              <option *ngFor="let min of mins; let i = index" [value]="mins[i].value">
+                {{min.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    <div class="submit">
+      <a class="button" (click)="updateClass()">Update Class</a>
+      <a class="button button-danger" (click)="toggleDeletePrompt()">Delete Class</a>
+    </div>
+    <div *ngIf="errorMessage" class="errors">
+      <span class="errors">{{ errorMessage }}</span>
+    </div>
+  </div>
+  <div class="half attendees">
+    <label>Attendees ({{attendees.length}})</label>
+    <ul>
+      <li *ngIf="attendees.length == 0">
+        None
+      </li>
+      <li *ngFor="let attendee of attendees">
+        {{attendee}}
+      </li>
+    </ul>
+  </div>
+</div>
+
+<app-delete-prompt-widget *ngIf="deletePrompt" (closeEvent)="toggleDeletePrompt()" (deleteClassEvent)="deleteClass()"></app-delete-prompt-widget>

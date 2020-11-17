@@ -1,0 +1,78 @@
+<div [ngClass]="{'card': true, 'add-class-card': true, 'opened': opened}" (click)="toggleOpen()">
+  <div>
+    <h4 class="primary-color">Add New Class</h4>
+  </div>
+  <div>
+    <i *ngIf="!opened" class="material-icons icon">add</i>
+    <i *ngIf="opened" class="material-icons icon">keyboard_arrow_up</i>
+  </div>
+</div>
+<div *ngIf="opened" class="add-class-content">
+  <form [formGroup]="addClassForm" (ngSubmit)="onSubmit(addClassForm.value)">
+    <fieldset>
+      <div class="field">
+        <input id="name" name="name" formControlName="name" placeholder="Class Name" required>
+      </div>
+      <div class="field">
+        <input id="zoomId" name="zoomId" formControlName="zoomId" placeholder="Zoom ID" required>
+      </div>
+      <div class="field">
+        <input id="description" name="description" formControlName="description" placeholder="Class Description (Optional)">
+      </div>
+      <div class="field select-field">
+        <label>Date</label>
+        <div class="select-field">
+          <div>
+            <select formControlName="dateDate" id="dateDate" required>
+              <option *ngFor="let date of dates; let i = index" [value]="dates[i]">
+                {{date}}
+              </option>
+            </select>
+          </div>
+          <p class="separator">/</p>
+          <div>
+            <select formControlName="dateMonth" id="dateMonth" required>
+              <option *ngFor="let month of months; let i = index" [value]="months[i].index">
+                {{month.name}}
+              </option>
+            </select>
+          </div>
+          <p class="separator">/</p>
+          <div>
+            <select formControlName="dateYear" id="dateYear" placeholder="2020" required>
+              <option *ngFor="let year of years; let i = index" [value]="years[i]">
+                {{year}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="field select-field">
+        <label>Time</label>
+        <div class="select-field">
+          <div>
+            <select formControlName="timeHour" id="timeHour" required>
+              <option *ngFor="let hour of hours; let i = index" [value]="hours[i]">
+                {{hour}}
+              </option>
+            </select>
+          </div>
+          <p class="separator">:</p>
+          <div>
+            <select formControlName="timeMins" id="timeMins" required>
+              <option *ngFor="let min of mins; let i = index" [value]="mins[i].value">
+                {{min.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    <div class="submit">
+      <input id="submit" name="submit" type="submit" class="button" value="Add Class" [disabled]="!addClassForm.valid">
+      <div *ngIf="errorMessage" class="errors">
+        <span class="errors">{{ errorMessage }}</span>
+      </div>
+    </div>
+  </form>
+</div>

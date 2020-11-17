@@ -1,0 +1,9 @@
+<div class="container">
+  <div>
+    <app-add-class-widget></app-add-class-widget>
+  </div>
+  <div>
+    <app-admin-class-widget *ngFor="let class of classes" [class]="class"></app-admin-class-widget>
+  </div>
+  <div class="blank-space"></div>
+</div>

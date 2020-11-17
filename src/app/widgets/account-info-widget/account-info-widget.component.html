@@ -1,0 +1,23 @@
+<div *ngIf="loggedInUser" class="icon fadeIn">
+  <div (click)="toggleSelect()" class="item">
+    <p>Logged in as: <span class="satisfy">{{ loggedInUser }}</span></p>
+    <i *ngIf="selected" class="material-icons">keyboard_arrow_down</i>
+    <i *ngIf="!selected" class="material-icons">account_circle</i>
+  </div>
+  <div *ngIf="selected">
+    <div *ngIf="admin" routerLink='admin' (click)="toggleSelect()" class="item">
+      <p>Admin Dashboard</p>
+    </div>
+<<<<<<< HEAD
+    <div (click)="toggleDeletePrompt()" class="item">
+      <p>Delete Account</p>
+    </div>
+=======
+>>>>>>> e1d7731386f7bae07bce57803f062bf5fcea221c
+    <div (click)="logout()" class="item">
+      <p>Log Out</p>
+    </div>
+  </div>
+</div>
+
+<app-delete-account-prompt-widget *ngIf="deletePrompt" (closeEvent)="toggleDeletePrompt()" (deleteUserEvent)="deleteUser()"></app-delete-account-prompt-widget>

@@ -1,0 +1,12 @@
+<div *ngIf="messages" class="messages">
+  <div *ngFor="let message of messages; let i = index">
+    <div *ngIf="!message.dismissed" class="message message-{{message.style}}">
+      <p>
+        {{message.message}}
+      </p>
+      <div class="icon-container">
+        <i class="material-icons close close-{{message.style}}" (click)="dismiss(i)">close</i>
+      </div>
+    </div>
+  </div>
+</div>

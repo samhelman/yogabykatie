@@ -1,0 +1,6 @@
+<app-nav-bar></app-nav-bar>
+<main [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
+  <router-outlet #o="outlet"></router-outlet>
+</main>
+<app-account-info-widget id="account-info-tab"></app-account-info-widget>
+<app-flash-messages-widget></app-flash-messages-widget>

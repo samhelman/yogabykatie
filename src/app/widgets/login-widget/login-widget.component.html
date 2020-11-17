@@ -1,0 +1,26 @@
+<div id="grey" class="grey fadeIn">
+  <div class="form-container">
+    <div class="card form">
+      <i class="material-icons close-icon" (click)="close()">close</i>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+        <fieldset>
+          <div class="field">
+            <input id="email" name="email" formControlName="email" placeholder="Email">
+          </div>
+          <div class="field">
+            <input id="password" name="password" type="password" formControlName="password" placeholder="Password">
+          </div>
+        </fieldset>
+        <input id="submit" name="submit" type="submit" class="button submit" value="Log In">
+        <div *ngIf="errorMessage" class="errors">
+          <span class="errors">{{ errorMessage }}</span>
+        </div>
+        <div>
+          <p class="muted">Need an account?
+            <a (click)="goToRegister()">Register!</a>
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

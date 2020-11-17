@@ -1,0 +1,99 @@
+.messages {
+  position: fixed;
+  top: 0;
+  right: 8px;
+  z-index: 100;
+}
+
+.message {
+  position: relative;
+  margin: 8px;
+  padding: 8px;
+  border-radius: 3px;
+  box-shadow: 0 0 10px 1px rgba(0,0,0,.3);
+  display: flex;
+  justify-content: space-between;
+  width: 500px;
+  max-width: 95vw;
+  vertical-align: center;
+}
+
+.message-info {
+  color: white;
+  background-color: mediumpurple;
+}
+
+.message-success {
+  color: #333;
+  background-color:lightgreen;
+}
+
+.message-danger {
+  color: white;
+  background-color: tomato;
+}
+
+.close {
+  display: block;
+  color: white;
+  font-size: 1rem;
+}
+
+.close-success {
+  color: #333;
+}
+
+.icon-container::after {
+  content: "";
+  display: block;
+  position: absolute;
+  padding-bottom: 100%;
+}
+
+.li {
+  height: 100%;
+  background-color: mediumseagreen;
+}
+
+.fadeInFlash {
+  animation: fadeInFlash 1s forwards ease;
+}
+
+.fadeOutFlash {
+  transform-origin: top;
+  animation: fadeOutFlash 1s forwards ease;
+}
+
+@keyframes fadeInFlash {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOutFlash {
+  from {
+    opacity: 1;
+    transform: scaleY(1)
+  }
+  to {
+    opacity: 0;
+    transform: scaleY(0)
+  }
+}
+
+@media only screen and (max-width: 500px) {
+
+  .messages {
+    top: auto;
+    bottom: 8px;
+    left: 0;
+    right: 0;
+  }
+
+  .message {
+    width: 95vw;
+  }
+}

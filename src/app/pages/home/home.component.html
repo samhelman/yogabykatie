@@ -1,0 +1,22 @@
+<div class="container">
+
+  <div *ngIf="!userAuthenticated">
+    <h2>Free Remote Yoga Classes</h2>
+    <div class="button-card">
+      <p>Log in to get started!</p>
+      <div class="button-container">
+        <a class="button button-primary" (click)="login()">Log In</a>
+        <a class="button button-secondary" (click)="register()">Register</a>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="userAuthenticated">
+    <h2>Next Scheduled Class:</h2>
+    <app-public-class-widget *ngFor="let class of [classes[0]]" [class]="class"></app-public-class-widget>
+  </div>
+
+</div>
+
+<app-login-widget *ngIf="loginWidget" (closeLoginEvent)="toggleLogin()" (toggleLoginRegister)="toggleLoginRegister()"></app-login-widget>
+<app-register-widget *ngIf="registerWidget" (closeRegisterEvent)="toggleRegister()" (toggleLoginRegister)="toggleLoginRegister()"></app-register-widget>

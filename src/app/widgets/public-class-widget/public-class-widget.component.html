@@ -1,0 +1,11 @@
+<div class="card">
+  <div>
+    <h4 class="primary-color">{{ class.name }}</h4>
+    <p class="muted">{{ class.description }}</p>
+    <p>{{ date + ' (' + time + ')' }}</p>
+  </div>
+  <div>
+    <a *ngIf="!joined" [ngClass]="{'button': true, 'joined': joined}" (click)="joinClass()">{{joinMessage}}</a>
+    <a *ngIf="joined" [ngClass]="{'button': true, 'joined': joined}" (click)="leaveClass()">Attending</a>
+  </div>
+</div>

@@ -118,7 +118,7 @@ export class PublicClassWidgetComponent implements OnInit {
         if (response) {
           this.fire.joinClass(this.class.uid).then(
             response => {
-              this.flash.createMessage('Successfully joined class. You should recieve an email 30 minutes before the class is scheduled to begin. If you do not, check your junk folder and then contact Katie!', 'success')
+              this.flash.createMessage('Successfully joined class. You should recieve an email 45 minutes before the class is scheduled to begin. If you do not, check your junk folder and then contact Katie!', 'success')
             }
           ).catch(
             error => {

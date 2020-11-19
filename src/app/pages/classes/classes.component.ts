@@ -27,10 +27,10 @@ export class ClassesComponent implements OnInit {
         response.map(
           el => {
             let now = new Date();
-            //only add class to classes array if it is more thank 30 mins in the future
-            var nowPlus30 = new Date(now.getTime() + 30*60000);
+            //only add class to classes array if it is more thank 60 mins in the future
+            var nowPlus60 = new Date(now.getTime() + 60*60000);
             let classTime = el['datetime'].toDate()
-            if (nowPlus30 < classTime) {
+            if (nowPlus60 < classTime) {
               let yogaClass: YogaClass = {
                 uid: el['uid'],
                 name: el['name'],

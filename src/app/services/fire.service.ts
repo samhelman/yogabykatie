@@ -160,7 +160,7 @@ export class FireService {
 
   addClass(yogaClass: YogaClass) {
     let schedule: Schedule = {
-      emailTime: new Date(yogaClass.datetime.getTime() - 30*60000),
+      emailTime: new Date(yogaClass.datetime.getTime() - 60*60000),
       recipients: [],
       sent: false
     }
@@ -182,7 +182,7 @@ export class FireService {
 
   updateClass(yogaClass: YogaClass) {
     let schedule: Schedule = {
-      emailTime: new Date(yogaClass.datetime.getTime() - 30*60000)
+      emailTime: new Date(yogaClass.datetime.getTime() - 60*60000)
     }
     return this.afs.firestore.runTransaction(
       async transaction => {

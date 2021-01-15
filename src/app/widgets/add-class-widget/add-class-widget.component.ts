@@ -27,7 +27,9 @@ export class AddClassWidgetComponent implements OnInit {
   ) {
     this.addClassForm = this.formBuilder.group({
       name: [null, [Validators.required]],
+      zoomLink: [null, [Validators.required]],
       zoomId: [null, [Validators.required]],
+      spotifyLink: [null, [Validators.required]],
       description: [null],
       dateYear: [null, [Validators.required]],
       dateMonth: [null, [Validators.required]],
@@ -103,7 +105,9 @@ export class AddClassWidgetComponent implements OnInit {
       let uid = this.fire.generateClassUid()
       let newClass: YogaClass = {
         uid: uid,
+        zoomLink: value.zoomLink,
         zoomId: value.zoomId,
+        spotifyLink: value.spotifyLink,
         description: value.description,
         name: value.name,
         datetime: classDate,

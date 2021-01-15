@@ -12,13 +12,19 @@
   <div class="half">
     <fieldset>
       <div class="field">
-        <input id="name" [(ngModel)]="updateName">
+        <input id="name" [(ngModel)]="updateName" placeholder="Class Name">
       </div>
       <div class="field">
-        <input id="zoomId" [(ngModel)]="updateZoomId">
+        <input id="zoomLink" [(ngModel)]="updateZoomLink" placeholder="Zoom Link">
       </div>
       <div class="field">
-        <input id="description" [(ngModel)]="updateDescription">
+        <input id="zoomId" [(ngModel)]="updateZoomId" placeholder="Zoom Id">
+      </div>
+      <div class="field">
+        <input id="spotifyLink" [(ngModel)]="updateSpotifyLink" placeholder="Spotify Link">
+      </div>
+      <div class="field">
+        <input id="description" [(ngModel)]="updateDescription" placeholder="Description">
       </div>
       <div class="field select-field">
         <label>Date</label>

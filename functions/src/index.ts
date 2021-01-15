@@ -113,6 +113,7 @@ export const cancelledClass = functions.firestore.document('classes/{classId}').
 
   const time = `${classData.estTime.substring(16,21)} EST`
 
+  console.log('deleting schedule')
   //delete schedule
   db.collection('schedules').doc(context.params.classId).delete()
 
@@ -131,6 +132,7 @@ export const cancelledClass = functions.firestore.document('classes/{classId}').
     },
   };
 
+  console.log('sending')
   // Send it
   return sgMail.send(msg);
 
@@ -154,7 +156,9 @@ export const startingClass = functions.pubsub.schedule('every 15 minutes').onRun
         recipients.push(email)
       }
 
+      let zoomLink = (await db.collection('classes').doc(classId).get()).data().zoomLink
       let zoomId = (await db.collection('classes').doc(classId).get()).data().zoomId
+      let spotifyLink = (await db.collection('classes').doc(classId).get()).data().spotifyLink
 
       // Email
       const msg = {
@@ -165,13 +169,17 @@ export const startingClass = functions.pubsub.schedule('every 15 minutes').onRun
         },
         templateId: STARTING_TEMPLATE_ID,
         dynamic_template_data: {
+            zoomLink: zoomLink,
             zoomId: zoomId,
+            spotifyLink: spotifyLink,
         },
       };
-
+      
+      console.log('sending')
       // Send it
       sgMail.send(msg);
 
+      console.log('setting sent to true')
       //set sent to true
       db.collection('schedules').doc(classId).set(
         { sent: true },

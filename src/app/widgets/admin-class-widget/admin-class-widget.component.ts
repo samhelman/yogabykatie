@@ -26,7 +26,9 @@ export class AdminClassWidgetComponent implements OnInit {
 
   //class content fields
   public updateName: string;
+  public updateZoomLink: string;
   public updateZoomId: string;
+  public updateSpotifyLink: string;
   public updateDescription: string;
   public updateDateYear: number;
   public updateDateMonth: number;
@@ -102,7 +104,9 @@ export class AdminClassWidgetComponent implements OnInit {
 
         //set update fields
         this.updateName = response['name']
+        this.updateZoomLink = response['zoomLink']
         this.updateZoomId = response['zoomId']
+        this.updateSpotifyLink = response['spotifyLink']
         this.updateDescription = response['description']
         this.updateDateYear = year
         this.updateDateMonth = monthIndex
@@ -150,7 +154,9 @@ export class AdminClassWidgetComponent implements OnInit {
         description: this.updateDescription,
         datetime: newDateTime,
         estTime: newDateTime.toString(),
-        zoomId: this.updateZoomId
+        zoomId: this.updateZoomId,
+        zoomLink: this.updateZoomLink,
+        spotifyLink: this.updateSpotifyLink,
       }
       this.fire.updateClass(yogaClass)
     } else {
